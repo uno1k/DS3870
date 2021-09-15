@@ -26,8 +26,11 @@ function buildEmployeeCard(){
             strHTML += '<input class="txtTotalPay">';
             strHTML += '<button id="btnCalculate" type="button" class="btn btn-warning">Calculate Pay</button>'
             strHTML += '</div>';
-            $('body').append(strHTML);
+            strHTML += '</div>';
+            $('#divEmployeeCards').append(strHTML);
+            $('#tblEmployees tbody').append('<tr><td>' + person.FirstName + '</td><td>' +person.LastName + '</td><td>');
     });
+    $('#tblEmployees').DataTable();
 }
 
 
