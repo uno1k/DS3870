@@ -20,13 +20,16 @@ namespace ISISGetEmployee
             public string CodeName { get; set; }
             public string Position { get; set; }
             public string Status { get;}
-            public Employee(string strFirstName, string strLastName, string strCodeName, string strPosition, string strStatus)
+            public string Agency { get; set; }
+            public double WeeklyPay { get; set; }
+            public Employee(string strFirstName, string strLastName, string strCodeName, string strPosition, string strStatus, double dblPayRate, double dblHours, string )
             {
                 FirstName = strFirstName;
                 LastName = strLastName;
                 CodeName = strCodeName;
                 Position = strPosition;
                 Status = strStatus;
+                WeeklyPay = dblPayRate * dblHours;
             }
         }
 
@@ -46,26 +49,17 @@ namespace ISISGetEmployee
             
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
-            
-            if (strCodeName == null)
+
+            Employee [] arrEmployees = new Employee[] { Archer, Lana}
+
+            foreach(Employee empCurrent in arrEmployees)
             {
-                return new OkObjectResult("Employee Not Found");
-            } else
-            {
-                if(strCodeName == "Duchess")
+                if(strCodeName == empCurrent.CodeName)
                 {
-                    return new OkObjectResult(Archer);
-                } else if (strCodeName == "Truckasaurus")
-                {
-                    return new OkObjectResult(Lana);
-                } else
-                {
-                    return new OkObjectResult("Employee Not Found");
+                    return new okObjectResult(empCurrent);
                 }
-                
             }
-            
-           
-        }
+            return new OkObjectResult("Employee Not Found")
+          
     }
 }
