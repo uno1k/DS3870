@@ -10,66 +10,62 @@ using Newtonsoft.Json;
 
 namespace ISISGetEmployee
 {
+    
     public static class getEmployee
     {
-
         private class Employee
         {
             public string FirstName { get; set; }
             public string LastName { get; set; }
-
             public string CodeName { get; set; }
-
             public string Position { get; set; }
-
-            public string Status { get; set; }
-            public getEmployee(string strFirtName, string strLastName, string strCodeName, string strPosition, string strStatus)
+            public string Status { get;}
+            public Employee(string strFirstName, string strLastName, string strCodeName, string strPosition, string strStatus)
             {
-                FirstName = strFirtName;
+                FirstName = strFirstName;
                 LastName = strLastName;
                 CodeName = strCodeName;
                 Position = strPosition;
                 Status = strStatus;
             }
-
         }
-    }
 
-    
         [FunctionName("getEmployee")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            string strCodeName = req.Query["CodeName"];
+            log.LogInformation("HTTP trigger on getEmployee processed a request for: " + strCodeName);
 
-            string name = req.Query["name"];
+            
 
-            Employee Archer = new Employee("sterling", "Archer", "duchess", "field Agent", "active");
-        Employee Lana = new Employee("Lana", "Kane", "Truckasauras", "field Agent", "active");
+            Employee Archer = new Employee("Sterling", "Archer", "Duchess", "Field Agent", "Active");
+            Employee Lana = new Employee("Lana", "Kane", "Truckasaurus", "Field Agent", "Active");
 
+            
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
-
-           
+            
             if (strCodeName == null)
             {
-                return new OkObjectResult("Employee not found");
+                return new OkObjectResult("Employee Not Found");
             } else
             {
-               if(strCodeName == "Duchess")
-            {
-                return new OkObjectResult(Archer);
-            } else
-            {
-                return new OkObjectResult("Employee Not Found")
+                if(strCodeName == "Duchess")
+                {
+                    return new OkObjectResult(Archer);
+                } else if (strCodeName == "Truckasaurus")
+                {
+                    return new OkObjectResult(Lana);
+                } else
+                {
+                    return new OkObjectResult("Employee Not Found");
+                }
+                
             }
-            }
-
+            
            
-
-            return new OkObjectResult(responseMessage);
         }
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISISGetEmployee", "ISISGetEmployee\ISISGetEmployee.csproj", "{DE1AABCE-BCB3-4EB0-AEC0-7E8F758F8F3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISISGetEmployee", "ISISGetEmployee\ISISGetEmployee.csproj", "{CD247CBF-9270-4BD9-BB33-9A56174246E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DE1AABCE-BCB3-4EB0-AEC0-7E8F758F8F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE1AABCE-BCB3-4EB0-AEC0-7E8F758F8F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE1AABCE-BCB3-4EB0-AEC0-7E8F758F8F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE1AABCE-BCB3-4EB0-AEC0-7E8F758F8F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD247CBF-9270-4BD9-BB33-9A56174246E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD247CBF-9270-4BD9-BB33-9A56174246E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD247CBF-9270-4BD9-BB33-9A56174246E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD247CBF-9270-4BD9-BB33-9A56174246E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {7B661EB5-8C08-4342-BD72-9A0D9B16212A}
+		SolutionGuid = {B336E20F-99DA-4875-AEF2-AEC59CA881D0}
 	EndGlobalSection
 EndGlobal
